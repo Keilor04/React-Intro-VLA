@@ -7,13 +7,12 @@ import './App.css';
 function App() {
 
   //Este espacio es de javascript 
-
+  const mostrarimagen = true; //Se pueden definir variables como en javascript
   return (
     //Este espacio en para escribir HTML
     //ClassName se usa para definir clases en JSX en lugar de usar Class como en Vue 
     <div className="App">
       <header className="App-header">
-
         {/* Las llaves se usan como sustitutos al v-bind de Vue  */}
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -28,6 +27,17 @@ function App() {
           Learn React
         </a>
       </header>
+      <div> 
+           {/* se agrega este espacio para agregar o ocultar una imagen */}
+        {/* && sirve para evaluar la condición de mostrarimagen y si se cumple "igual a true"
+        entonces se agrega al HTML la parte derecha  */}
+      {mostrarimagen && <span>Hola</span>}
+{/* En este caso seria un condicional para verificar si mostrarimagen se cumple "?" con 
+que sea igual a "true" entonces se agrega la imagen sino ":" se escribe el mensaje */}
+      {mostrarimagen? <img src={logo} className="App-logo" alt="logo" /> : 'No hay una imagen para mostrar'}
+      </div>
+
+
 
     </div>
   );
