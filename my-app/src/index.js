@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App, { HelloWorld } from './App';
+//Se importan los componentes creados en el App.js
+import App, { HelloWorld, Mostrarimagen, Contador } from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+    {/* Aquí se pueden agregar los componentes que se han creado */}
     <HelloWorld />
+    <Mostrarimagen />
+    <Contador />
   </React.StrictMode>
 );
 
