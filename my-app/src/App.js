@@ -96,28 +96,36 @@ function Contador() {
 
 //Práctica de un menú como el del Github 07-04-2025
 
-function MenuconObjetos () {
+function MenuconObjetos() {
+//Se crea un array de objetos para el menú
+//Se le asigna un id, nombre, url y un valor booleano para indicar si la opción esta activa o no
+  const opcionesmenu = [
+    { id: 1, nombre: "Code", url: "https://www.google.com", isSelected: true },
+    { id: 2, nombre: "Issues", url: "https://www.google.com", isSelected: true },
+    { id: 3, nombre: "Pull - Requests", url: "https://www.google.com", isSelected: false },
+  ];
 
-const opcionesmenu = [
-  { id: 1, nombre: "Code", url: "https://www.google.com", isSelected: true },
-  { id: 2, nombre: "Issues", url: "https://www.google.com", isSelected: true},
-  { id: 3, nombre: "Pull - Requests", url: "https://www.google.com" , isSelected: false},
-];
-
-return (
-  <nav>
-    <ul>
-      {opcionesmenu.map((opcion) => (
-        <li key={opcion.id}>
-          <a href={opcion.url}>
-            {opcion.nombre}
-            {opcion.isSelected ? <span> (*) </span> : <span> ( ) </span>}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </nav>
-  );
+  return (
+    //Se usa un solo div para envolver todo el contenido del componente para mostrarlo en el index.js
+    <div className="container">
+      <h3 className="text-center my-4">Menu de opciones con React - práctica en clase 07-04-2025</h3>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <ul className="navbar-nav">
+        {/* Se usa el map para recorrer el array de objetos y se le asigna un key a cada elemento */}
+          {opcionesmenu.map((opcion) => (
+            // Se le asigna la clase m-1 btn btn-info a cada elemento del array con Bootstrap 
+            <li key={opcion.id} className='m-1 btn btn-info' type='button'>
+              <a href={opcion.url} className='text-decoration-none text-light'>
+                {opcion.nombre}
+                {/* Esta forma es para realizar el condicional si la opción del menu esta activa (TRUE) o no (FALSE) */}
+                {opcion.isSelected ? <span> * </span> : <span> ( ) </span>}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  );
 }
 
 export default App;
