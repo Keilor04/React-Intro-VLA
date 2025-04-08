@@ -61,7 +61,7 @@ function HelloWorld() {
 
 function Mostrarimagen() {
   const mostrarimagen = true; //Se pueden definir variables como en javascript
-  const imagen = "https://reactjs.org/logo-og.png"; //Se pueden definir variables como en javascript
+  // Removed unused variable 'imagen'
   return (
     <div className="App">
       <header className="App-header">
@@ -93,6 +93,33 @@ function Contador() {
   );
 }
 
+
+//Práctica de un menú como el del Github 07-04-2025
+
+function MenuconObjetos () {
+
+const opcionesmenu = [
+  { id: 1, nombre: "Code", url: "https://www.google.com", isSelected: true },
+  { id: 2, nombre: "Issues", url: "https://www.google.com", isSelected: true},
+  { id: 3, nombre: "Pull - Requests", url: "https://www.google.com" , isSelected: false},
+];
+
+return (
+  <nav>
+    <ul>
+      {opcionesmenu.map((opcion) => (
+        <li key={opcion.id}>
+          <a href={opcion.url}>
+            {opcion.nombre}
+            {opcion.isSelected ? <span> (*) </span> : <span> ( ) </span>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+  );
+}
+
 export default App;
 
 //Exportar los componentes para poder usarlos en el index.js
@@ -102,3 +129,5 @@ export { HelloWorld };
 export { Mostrarimagen };
 
 export { Contador };
+
+export { MenuconObjetos };
