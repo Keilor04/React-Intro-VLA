@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 //Se importan los componentes creados en el App.js
-import App, { HelloWorld, Mostrarimagen, Contador, MenuconObjetos } from './App';
+import App, { HelloWorld, Mostrarimagen, Contador, MenuconObjetos, MenuconObjetosConActualizar} from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,6 +14,7 @@ root.render(
     <Mostrarimagen />
     <Contador />
     <MenuconObjetos />
+    <MenuconObjetosConActualizar />
   </React.StrictMode>
 );
 

@@ -36,8 +36,9 @@ function App() {
         <br></br>
       </div>
     </div>
-  );
-}
+    );
+  }
+
 
 //Práctica de un componente
 
@@ -94,7 +95,7 @@ function Contador() {
 }
 
 
-//Práctica de un menú como el del Github 07-04-2025
+//Práctica de un menú usando map del Github 07-04-2025
 
 function MenuconObjetos() {
 //Se crea un array de objetos para el menú
@@ -114,11 +115,51 @@ function MenuconObjetos() {
         {/* Se usa el map para recorrer el array de objetos y se le asigna un key a cada elemento */}
           {opcionesmenu.map((opcion) => (
             // Se le asigna la clase m-1 btn btn-info a cada elemento del array con Bootstrap 
-            <li key={opcion.id} className='m-1 btn btn-info' type='button'>
+            <li key={opcion.id} className='m-4 btn btn-info' type='button'>
               <a href={opcion.url} className='text-decoration-none text-light'>
                 {opcion.nombre}
                 {/* Esta forma es para realizar el condicional si la opción del menu esta activa (TRUE) o no (FALSE) */}
                 {opcion.isSelected ? <span> * </span> : <span> ( ) </span>}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  );
+}
+
+//Práctica de un menú como el del Github 09-04-2025
+function MenuconObjetosConActualizar() {
+//Se crea un array de objetos para el menú
+//Se le asigna un id, nombre, url y un valor booleano para indicar si la opción esta activa o no
+  const opcionesmenu = [
+    { id: 1, nombre: "Code", url: "https://www.google.com", isSelected: true },
+    { id: 2, nombre: "Issues", url: " ", isSelected: true },
+    { id: 3, nombre: "Pull - Requests", url: "https://www.google.com", isSelected: false },
+  ];
+  //Se define una constante actualizar para mostrar un mensaje desde una constante cuanddo el usuario da click en un enlace 
+const actualizar = (id) => {
+  console.log('actualizar elemento', id);
+};
+
+  return (
+    //Se usa un solo div para envolver todo el contenido del componente para mostrarlo en el index.js
+    <div className="container">
+      <h3 className="text-center my-4">Menu de opciones con React usando la funcion Onclick- práctica en clase 09-04-2025</h3>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <ul className="navbar-nav">
+        {/* Se usa el map para recorrer el array de objetos y se le asigna un key a cada elemento */}
+          {opcionesmenu.map((opcionmenu) => (
+            // Se le asigna la clase m-1 btn btn-info a cada elemento del array con Bootstrap 
+            <li key={opcionmenu.id} className='m-4 btn btn-info' type='button'>
+         {/* onClick sirve para ejecutar una función al hacer click y bind sirve para enlazar el contexto de la función */}
+         {/* Se usa '# ' en el href para evitar que se recargue la página al hacer click y se refiera a una parte de la pagina web propia como en HTML que se usaba 
+         la etiqueta # para hacer un llamado interno a una sección de una página web por ejemplo */}
+              <a href={'#opcionmenu.url'} className='text-decoration-none text-light' onClick={actualizar.bind(this, opcionmenu.id)}>
+                {opcionmenu.nombre}
+                {/* Esta forma es para realizar el condicional si la opción del menu esta activa (TRUE) o no (FALSE) */}
+                {opcionmenu.isSelected ? <span> * </span> : <span> ( ) </span>}
               </a>
             </li>
           ))}
@@ -138,4 +179,4 @@ export { Mostrarimagen };
 
 export { Contador };
 
-export { MenuconObjetos };
+export { MenuconObjetos, MenuconObjetosConActualizar };
