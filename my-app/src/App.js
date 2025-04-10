@@ -179,4 +179,6 @@ export { Mostrarimagen };
 
 export { Contador };
 
-export { MenuconObjetos, MenuconObjetosConActualizar };
+export { MenuconObjetos}; 
+  
+export { MenuconObjetosConActualizar };
